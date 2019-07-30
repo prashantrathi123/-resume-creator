@@ -18,8 +18,7 @@ app.get('/download',function(req,res){
 	requestify.get(externalURL).then(function (response) {
    // Get the raw HTML response body
    var html = response.body; 
-   var config = {format: 'A4'}; // or format: 'letter' - see https://github.com/marcbachmann/node-html-pdf#options
-
+   var config = {format: 'A4'};
 // Create the PDF
    pdf.create(html, config).toFile('ress/generated.pdf', function (err, res) {
       if (err) return console.log(err);
